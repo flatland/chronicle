@@ -40,6 +40,15 @@ user=> (take 10 (c/times-for {:minute (range 0 60 5)} (t/now)))
 
 That's pretty much it. Pretty simple, eh?
 
+To get times in local time zone, use local-now instead, i.e.
+
+```clojure
+user=> (require '[clj-time.local :as l])
+nil
+user=> (take 10 (c/times-for {:minute (range 0 60 5)} (l/local-now)))
+(#<DateTime 2014-07-17T12:00:00.000-07:00> #<DateTime 2014-07-17T12:05:00.000-07:00> #<DateTime 2014-07-17T12:10:00.000-07:00> #<DateTime 2014-07-17T12:15:00.000-07:00> #<DateTime 2014-07-17T12:20:00.000-07:00> #<DateTime 2014-07-17T12:25:00.000-07:00> #<DateTime 2014-07-17T12:30:00.000-07:00> #<DateTime 2014-07-17T12:35:00.000-07:00> #<DateTime 2014-07-17T12:40:00.000-07:00> #<DateTime 2014-07-17T12:45:00.000-07:00>)
+```
+
 ## License
 
 Distributed under the Eclipse Public License, the same as Clojure.
